@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroCard = document.querySelector('.hero-card');
   const portraitFrame = document.createElement('div');
   portraitFrame.className = 'portrait-frame';
-  portraitFrame.innerHTML = '<div class="portrait-initials" aria-hidden="true">JH</div><span>JANNATUL HOSNA</span>';
+  portraitFrame.innerHTML = '<img src="https://github.com/JannatulHosna.png?size=640" alt="Jannatul Hosna on GitHub"><span>JANNATUL HOSNA</span>';
+  portraitFrame.querySelector('img').addEventListener('load', () => heroCard.classList.add('portrait-ready'));
+  portraitFrame.querySelector('img').addEventListener('error', () => portraitFrame.classList.add('portrait-missing'));
   heroCard.prepend(portraitFrame);
 
   if (storedTheme) root.dataset.theme = storedTheme;
